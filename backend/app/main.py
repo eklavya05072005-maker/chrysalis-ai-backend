@@ -11,10 +11,10 @@ from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from backend.app.core.config import settings, get_settings
-from backend.app.db.database import check_db_connectivity, init_db
-from backend.app.api.routes.health import router as health_router
-from backend.app.api.routes.projects import router as projects_router
+from app.core.config import settings, get_settings
+from app.db.database import check_db_connectivity, init_db
+from app.api.routes.health import router as health_router
+from app.api.routes.projects import router as projects_router
 
 # Configure logging
 logging.basicConfig(
