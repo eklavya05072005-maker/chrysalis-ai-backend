@@ -1,0 +1,128 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-primary: #080808;
+  --bg-secondary: #111111;
+  --bg-card: rgba(17, 17, 17, 0.85);
+  --accent-red: #D92332;
+  --accent-red-glow: #FF2B3D;
+  --text-primary: #F7F7F7;
+  --text-secondary: #B7B7B7;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  min-height: 100vh;
+  background-color: #080808;
+  color: #F7F7F7;
+  overflow-x: hidden;
+  selection-background-color: #D92332;
+  selection-color: #FFFFFF;
+}
+
+::selection {
+  background: #D92332;
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D92332;
+}
+
+/* Cinematic Grain / Texture overlay */
+.cinematic-vignette {
+  background: radial-gradient(circle at center, rgba(8, 8, 8, 0.3) 0%, rgba(8, 8, 8, 0.95) 100%);
+}
+
+.hero-gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 8, 0.6) 0%,
+    rgba(8, 8, 8, 0.4) 40%,
+    rgba(8, 8, 8, 0.85) 85%,
+    #080808 100%
+  );
+}
+
+.red-edge-glow {
+  box-shadow: 0 0 30px -5px rgba(217, 35, 50, 0.35);
+}
+
+.red-edge-glow-intense {
+  box-shadow: 0 0 50px 0px rgba(217, 35, 50, 0.55);
+}
+
+.glass-panel {
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(24, 24, 24, 0.85);
+  border-color: rgba(217, 35, 50, 0.4);
+  transform: translateY(-4px);
+}
+
+.text-stroke-subtle {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+/* Stagger animations */
+@keyframes editorialReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: editorialReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
